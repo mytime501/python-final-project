@@ -42,7 +42,7 @@ class SimLoader:
                 safe_float(table.get(row, "Width"), 0.0),
             ])
         if not blocks:
-            raise ValueError(f"Empty SIM CSV: {sim_csv_path}")
+            raise ValueError("빈 SIM CSV입니다: 파일 경로")
         block = np.array(blocks, dtype=np.int32)
         xyz = np.array(xyz_rows, dtype=np.float32)
         base = np.nan_to_num(np.array(base_rows, dtype=np.float32))

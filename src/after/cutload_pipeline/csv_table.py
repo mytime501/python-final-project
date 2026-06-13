@@ -31,7 +31,7 @@ def find_header_row(path: Path, required_cols: Sequence[str], delimiter: str, ma
             seen = {norm_col(c) for c in row}
             if required.issubset(seen):
                 return i
-    raise ValueError(f"Could not find CSV header in {path}")
+    raise ValueError("CSV 헤더를 찾지 못했습니다: 파일 경로")
 
 
 @dataclass(slots=True)

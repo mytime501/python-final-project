@@ -26,7 +26,7 @@ class ExperimentRunner:
         resolver = PathResolver(self.cfg.paths.sim_glob, self.cfg.paths.act_glob)
         pairs = list(resolver.iter_pairs())
         if not pairs:
-            raise RuntimeError(f"No CSV pairs: sim={self.cfg.paths.sim_glob} act={self.cfg.paths.act_glob}")
+            raise RuntimeError("CSV 파일 쌍을 찾지 못했습니다. SIM 폴더 경로와 ACT 폴더 경로를 확인하세요.")
         loader = SimLoader()
         mapper = ActMapper(self.cfg.mapping)
         runs = [

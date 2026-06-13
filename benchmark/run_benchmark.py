@@ -98,7 +98,7 @@ def _load_old_module():
     path = ROOT / "src" / "before" / "old.py"
     spec = importlib.util.spec_from_file_location("old_before", path)
     if spec is None or spec.loader is None:
-        raise RuntimeError(f"Cannot import {path}")
+        raise RuntimeError("원본 코드 파일을 불러올 수 없습니다: 파일 경로")
     module = importlib.util.module_from_spec(spec)
     sys.modules["old_before"] = module
     spec.loader.exec_module(module)
@@ -200,7 +200,7 @@ def _write_csv(path: Path, rows: list[dict[str, object]]) -> None:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Benchmark before/after CNC pipeline code.")
+    parser = argparse.ArgumentParser(description="개선 전후 CNC 파이프라인 성능 비교")
     parser.add_argument("--mode", choices=["smoke", "full"], default="smoke")
     parser.add_argument("--repeat", type=int, default=5)
     args = parser.parse_args()

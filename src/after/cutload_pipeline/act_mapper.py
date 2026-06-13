@@ -104,5 +104,5 @@ class ActMapper:
             mask_rows.append(bool(sim.train_start_s <= s_at_p <= sim.train_end_s))
             t_rows.append(float(t_ms))
         if len(y_rows) < min_rows:
-            raise ValueError(f"Too few mapped ACT rows: {act_csv_path} -> {len(y_rows)}")
+            raise ValueError(f"매핑된 ACT 행이 부족합니다: 파일 경로 -> {len(y_rows)}")
         return RunData(name, np.stack(mapped_rows), np.stack(look_rows), np.array(y_rows, dtype=np.float32).reshape(-1, 1), np.array(mask_rows, dtype=np.bool_), np.array(t_rows, dtype=np.float32))

@@ -8,10 +8,10 @@ from cutload_pipeline.config import MappingConfig, PathConfig, TrainConfig
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Run the refactored CNC cutting-load pipeline.")
-    parser.add_argument("--sim-glob", default="data/synthetic/small/Sim_20mm/*.csv")
-    parser.add_argument("--act-glob", default="data/synthetic/small/Act_20mm/*.csv")
-    parser.add_argument("--output-dir", default="results/after")
+    parser = argparse.ArgumentParser(description="CNC 절삭 부하 예측 파이프라인 실행")
+    parser.add_argument("--sim-glob", required=True, metavar="폴더 경로", help="SIM CSV 파일 폴더 경로 또는 검색 패턴")
+    parser.add_argument("--act-glob", required=True, metavar="폴더 경로", help="ACT CSV 파일 폴더 경로 또는 검색 패턴")
+    parser.add_argument("--output-dir", default="결과_폴더", metavar="폴더 경로", help="결과를 저장할 폴더 경로")
     parser.add_argument("--epochs", type=int, default=3)
     parser.add_argument("--hidden-size", type=int, default=32)
     parser.add_argument("--seed", type=int, default=42)

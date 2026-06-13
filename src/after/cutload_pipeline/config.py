@@ -6,9 +6,9 @@ from pathlib import Path
 
 @dataclass(slots=True)
 class PathConfig:
-    sim_glob: str = "data/synthetic/small/Sim_20mm/*.csv"
-    act_glob: str = "data/synthetic/small/Act_20mm/*.csv"
-    output_dir: Path = Path("results/after")
+    sim_glob: str = ""
+    act_glob: str = ""
+    output_dir: Path = Path("결과_폴더")
 
 
 @dataclass(slots=True)
